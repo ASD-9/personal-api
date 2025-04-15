@@ -66,6 +66,6 @@ yarn-error.log*
 # Add below your ignored files and folders custom list
 # ------------------------------------------------------------
 
-.sonar
 public
 .vscode
+data.json
