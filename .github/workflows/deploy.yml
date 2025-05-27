@@ -36,5 +36,5 @@ jobs:
             docker stop personal-api
             docker rm personal-api
             docker pull ${{ secrets.DOCKER_USERNAME }}/personal-api:latest
-            docker run -d -p 15000:3000 --name personal-api -v /personal-api-data.json:/usr/src/app/data.json ${{ secrets.DOCKER_USERNAME }}/personal-api:latest
+            docker run -d -p 15000:3000 --name personal-api -v ./personal-api-data.json:/usr/src/app/data.json ${{ secrets.DOCKER_USERNAME }}/personal-api:latest
             docker image prune -f
