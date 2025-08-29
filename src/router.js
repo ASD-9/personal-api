@@ -3,6 +3,8 @@ const router = Router();
 
 const controller = require("./controller");
 
+router.get("/", controller.getData);
+
 router.get("/about", controller.getAbout);
 
 router.get("/contact", controller.getContact);
