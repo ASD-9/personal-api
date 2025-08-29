@@ -33,8 +33,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            docker stop personal-api
-            docker rm personal-api
-            docker pull ${{ secrets.DOCKER_USERNAME }}/personal-api:latest
-            docker run -d -p 15000:3000 --name personal-api -v ./personal-api-data.json:/usr/src/app/data.json ${{ secrets.DOCKER_USERNAME }}/personal-api:latest
+            cd personal-api-env/
+            docker compose pull
+            docker compose up -d
             docker image prune -f

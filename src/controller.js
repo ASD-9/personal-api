@@ -1,5 +1,17 @@
 const { readData, writeData } = require("./dataUtils");
 
+const getData = (req, res) => {
+  try {
+    const data = readData();
+    if (!data) {
+      return res.status(500).json({ message: "Erreur serveur" });
+    }
+    res.status(200).json({ message: "Données récupérées", data });
+  } catch {
+    res.status(500).json({ message: "Erreur serveur" });
+  }
+}
+
 const getAbout = (req, res) => {
   try {
     const data = readData();
@@ -113,6 +125,7 @@ const getProject = (req, res) => {
 }
 
 module.exports = {
+  getData,
   getAbout,
   getContact,
   getSkills,
